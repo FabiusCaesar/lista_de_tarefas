@@ -1,0 +1,184 @@
+/* Reset de estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Centralizar conteúdo */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Ajustado para o topo */
+    align-items: center;
+    height: 100vh;
+    font-family: "Poppins", sans-serif;
+    background-color: #f0f0f0;
+    padding: 20px;
+    overflow-y: auto; /* Permitir rolagem se necessário */
+}
+
+/* Estilo do header */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    background-color: #f0f0f0;
+    z-index: 10;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+    
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #333333;
+    font-weight: bolder;
+}
+
+/* Estilo do botão */
+button {
+    padding: 10px 20px;
+    background-color: #c49b00;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: bolder;
+    transition: background-color 1s ease, color 1s ease;
+}
+
+#button-new {
+    padding: 10px 20px;
+    position: sticky;
+    top: 60px; /* Espaço abaixo do header */
+    z-index: 9;
+}
+
+button:hover {
+    background-color: rgba(214, 168, 1, 0.9);
+    color: #535353;
+}
+
+/* Estilo do container */
+.container {
+    width: 80%;
+    max-width: 600px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 8px; /* Espaçamento entre o formulário e a lista */
+    padding-bottom: 10px;
+}
+
+#controls {
+    width: 80%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#section-form {
+    width: 100%;
+}
+
+/* Estilo do formulário */
+form {
+    display: none;
+    display: flex;
+    flex-direction: row; /* Alinhar elementos em linha */
+    gap: 10px; /* Espaço entre os elementos */    
+    width: 100%; /* Largura total do formulário */
+    justify-content: space-between; /* Alinhar extremos */
+    align-items: center; /* Centralizar verticalmente */
+    margin-top: 8px;
+}
+
+/* Estilo dos inputs */
+form input {
+    flex-grow: 1; /* O input deve crescer para ocupar o espaço disponível */
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    font-size: 1em;
+    height: 44px; /* Altura dos imputs */
+    max-width: calc(100% - 120px); /* Largura máxima para o input */
+    /* Aqui 120px é uma suposição do tamanho do botão */
+}
+
+form button {
+    height: 44px; /* Altura igual ao input */
+    padding: 0 20px; /* Espaçamento interno do botão */
+    flex-shrink: 0; /* Não permitir que o botão encolha */
+    white-space: nowrap; /* Prevenir quebra de texto */
+}
+
+h2 {
+    font-size: 1.8em;
+    background-color: #535353; /* Cor de fundo para cabeçalho */
+    color: #c49b00; /* Cor do texto do cabeçalho */
+    text-align: center;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+/* Estilo da lista de tarefas */
+ul {
+    text-align: center;
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    padding: 5px;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 1s ease;
+    position: relative; /* Permitir posicionamento absoluto para a imagem */
+}
+
+ul li:hover {
+    background-color: #e0e0e0;
+    border: 1px solid #cccccc;
+}
+
+/* Estilo da tarefa completada */
+.completed {
+    text-decoration: line-through;
+    color: #a0a0a0;
+}
+
+/* Estilo da imagem */
+.completed::after {
+    content: url('images/checkmark.png'); /* Caminho da imagem */
+    margin-left: 10px; /* Espaço entre o texto e a imagem */
+    position: absolute;
+}
+
+/* Estilo para destacar input em caso de duplicata */
+.duplicated {
+    border: 2px solid red; /* Define uma borda vermelha */
+    animation: shake 0.2s; /* Animação de agitação */
+    outline: none; /* Remove a borda de foco padrão */
+}
+
+/* Remover borda de foco padrão quando a classe 'duplicated' estiver presente */
+.duplicated:focus {
+    border: 2px solid red; /* Mantém a borda vermelha visível */
+    box-shadow: none; /* Remove a sombra de foco padrão */
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
